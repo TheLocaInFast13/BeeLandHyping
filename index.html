@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BeeLand | Hyping</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fff8dc, #ffe87c);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #f7b500;
+      text-shadow: 2px 2px #00000030;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      background-color: #ffcc00;
+      color: #333;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background-color: #ffd633;
+    }
+
+    img {
+      width: 100px;
+      animation: buzz 1.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes buzz {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(3deg); }
+      75% { transform: rotate(-3deg); }
+    }
+  </style>
+</head>
+<body>
+  <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Bee_JE2_BE3.png" alt="Minecraft Bee">
+  <h1>BeeLand | Hyping</h1>
+
+  <div class="buttons">
+    <button onclick="accessOB()">Accéder à la page OB</button>
+    <button onclick="window.open('https://sites.google.com/d/1MuVhaPdfxbRjtuy0zwtdGhjcHHr9Lr8J/p/1rogr2eVXU0QZqHOQAZcs5zf3mzSBjJn6/edit', '_blank')">Accéder aux Informations Générales du Pwarp</button>
+  </div>
+
+  <script>
+    function accessOB() {
+      const code = prompt("Veuillez entrer le code d'accès :");
+      if(code === "B2L55E0") {
+        window.open("https://sites.google.com/d/1MuVhaPdfxbRjtuy0zwtdGhjcHHr9Lr8J/p/1_HoSGqUjBjEOqAx-lOUA9WegRr2on3dT/edit", "_blank");
+      } else {
+        alert("Code incorrect !");
+      }
+    }
+  </script>
+</body>
+</html>
