@@ -49,12 +49,12 @@
       background-color: #ffd633;
     }
 
-    .discord-button {
+    .discord-button,
+    .discord-hyping {
       display: flex;
       align-items: center;
       gap: 12px;
       padding: 7px 20px;
-      background-color: #5865F2;
       color: white;
       font-size: 1.1rem;
       font-weight: bold;
@@ -65,11 +65,21 @@
       text-decoration: none;
       transition: transform 0.2s, background-color 0.3s;
       position: absolute;
-      bottom: 20px;
       left: 20px;
     }
 
-    .discord-button:hover {
+    .discord-button {
+      bottom: 20px;
+      background-color: #5865F2;
+    }
+
+    .discord-hyping {
+      bottom: 70px;
+      background-color: #7289da;
+    }
+
+    .discord-button:hover,
+    .discord-hyping:hover {
       transform: scale(1.05);
       background-color: #4752c4;
     }
@@ -97,8 +107,6 @@
   </style>
 </head>
 <body>
-  <!-- Nouvelle image de miel -->
-  <img class="honey" src="https://cdn.discordapp.com/attachments/1337711498168107008/1360183330707865650/depositphotos_26403783-stock-photo-honey-flowing-on-a-white-removebg-preview.png?ex=67fa30f1&is=67f8df71&hm=4066fea44ae4c04764ea9cc29c0e490af31c29b5c21cd1d336c9503ceb34095a&" alt="Miel">
 
   <img class="bee" src="https://preview.redd.it/uvivl8gbhz281.png?auto=webp&s=07640911b5dc686b0365755ec2eb37732c4ecb82" alt="Minecraft Bee">
   <h1>BeeLand | Hyping</h1>
@@ -108,9 +116,16 @@
     <button onclick="window.open('https://sites.google.com/view/beelandhyping/page-information?authuser=0', '_blank')">Accéder aux Informations Générales du Pwarp</button>
   </div>
 
+  <!-- Ancien bouton Discord -->
   <a class="discord-button" href="https://discord.gg/mXY35WQu8k" target="_blank">
     <img class="discord-logo" src="https://static-00.iconduck.com/assets.00/discord-icon-512x394-w67rhk6f.png" alt="Discord Logo">
     Rejoins notre Discord
+  </a>
+
+  <!-- Nouveau bouton Discord Hyping -->
+  <a class="discord-hyping" href="https://discord.gg/4eKrgr8Ez8" target="_blank">
+    <img class="discord-logo" src="https://static-00.iconduck.com/assets.00/discord-icon-512x394-w67rhk6f.png" alt="Discord Logo">
+    Rejoins le Discord d'Hyping !
   </a>
 
   <script>
