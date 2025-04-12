@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BeeLand | Hyping</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -104,11 +105,55 @@
       25% { transform: rotate(3deg); }
       75% { transform: rotate(-3deg); }
     }
+
+    /* PaPaSayens en style Minecraft pixel + rotation */
+    .papa-container {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.3rem;
+      text-shadow: 2px 2px #000;
+      display: flex;
+      align-items: center;
+      transform: rotate(9deg);
+      image-rendering: pixelated;
+    }
+
+    .orange {
+      color: #ffaa00;
+    }
+
+    .cyan {
+      color: #00ffff;
+    }
+
+    .heart {
+      color: red;
+      animation: beat 1s infinite;
+      margin-left: 10px;
+      font-size: 1.5em;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Titre Minecraft style -->
+  <div class="papa-container">
+    <span class="orange">PaPa</span><span class="cyan">Sayens</span><span class="heart">❤</span>
+  </div>
+
   <img class="bee" src="https://preview.redd.it/uvivl8gbhz281.png?auto=webp&s=07640911b5dc686b0365755ec2eb37732c4ecb82" alt="Minecraft Bee">
+
   <h1>BeeLand | Hyping</h1>
 
   <div class="buttons">
@@ -116,13 +161,11 @@
     <button onclick="window.open('https://sites.google.com/view/beelandhyping/page-information?authuser=0', '_blank')">Accéder aux Informations Générales du Pwarp</button>
   </div>
 
-  <!-- Ancien bouton Discord -->
   <a class="discord-button" href="https://discord.gg/mXY35WQu8k" target="_blank">
     <img class="discord-logo" src="https://static-00.iconduck.com/assets.00/discord-icon-512x394-w67rhk6f.png" alt="Discord Logo">
     Rejoins notre Discord
   </a>
 
-  <!-- Nouveau bouton Discord Hyping -->
   <a class="discord-hyping" href="https://discord.gg/4eKrgr8Ez8" target="_blank">
     <img class="discord-logo" src="https://static-00.iconduck.com/assets.00/discord-icon-512x394-w67rhk6f.png" alt="Discord Logo">
     Rejoins le Discord d'Hyping !
