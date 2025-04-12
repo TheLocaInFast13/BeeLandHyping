@@ -106,7 +106,6 @@
       75% { transform: rotate(-3deg); }
     }
 
-    /* PaPaSayens en style Minecraft pixel + rotation */
     .papa-container {
       position: absolute;
       top: 30px;
@@ -116,17 +115,12 @@
       text-shadow: 2px 2px #000;
       display: flex;
       align-items: center;
-      transform: rotate(9deg);
+      transform: rotate(-8deg);
       image-rendering: pixelated;
     }
 
-    .orange {
-      color: #ffaa00;
-    }
-
-    .cyan {
-      color: #00ffff;
-    }
+    .orange { color: #ffaa00; }
+    .cyan { color: #00ffff; }
 
     .heart {
       color: red;
@@ -136,18 +130,58 @@
     }
 
     @keyframes beat {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.3);
-      }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff3cd;
+      border: 3px solid #ffcc00;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      z-index: 10;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .modal h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #d48806;
+    }
+
+    .modal ul {
+      list-style: none;
+      padding: 0;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .modal ul li::before {
+      content: "🐝 ";
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 5;
     }
   </style>
 </head>
 <body>
 
-  <!-- Titre Minecraft style -->
+  <!-- Titre Minecraft -->
   <div class="papa-container">
     <span class="orange">PaPa</span><span class="cyan">Sayens</span><span class="heart">❤</span>
   </div>
@@ -159,6 +193,22 @@
   <div class="buttons">
     <button onclick="accessOB()">Accéder à la page OB</button>
     <button onclick="window.open('https://sites.google.com/view/beelandhyping/page-information?authuser=0', '_blank')">Accéder aux Informations Générales du Pwarp</button>
+    <button onclick="toggleModal()">En savoir plus</button>
+  </div>
+
+  <!-- Modal -->
+  <div class="overlay" onclick="toggleModal()"></div>
+  <div class="modal">
+    <h2>Membres OB BeeLand</h2>
+    <ul>
+      <li>N4RUX</li>
+      <li>LM_MangeMonMelo</li>
+      <li>AnorkiA</li>
+      <li>Munich2824</li>
+      <li>Lovely1815</li>
+      <li>Wirox35430</li>
+      <li>Chef : Broder445_</li>
+    </ul>
   </div>
 
   <a class="discord-button" href="https://discord.gg/mXY35WQu8k" target="_blank">
@@ -179,6 +229,14 @@
       } else {
         alert("Code incorrect !");
       }
+    }
+
+    function toggleModal() {
+      const modal = document.querySelector('.modal');
+      const overlay = document.querySelector('.overlay');
+      const isVisible = modal.style.display === 'block';
+      modal.style.display = isVisible ? 'none' : 'block';
+      overlay.style.display = isVisible ? 'none' : 'block';
     }
   </script>
 </body>
