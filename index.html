@@ -3,13 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BeeLand | Hyping</title>
+  <title>B33L4nD | C0RRuPt3D</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
+    * {
+      animation: glitch-shake 0.1s infinite;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #fff8dc, #ffe87c);
+      font-family: 'Press Start 2P', cursive;
+      background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ffff00, #ff00ff);
+      background-size: 400% 400%;
+      animation: rainbow-bg 0.5s ease-in-out infinite, screen-tear 2s infinite;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -17,13 +23,16 @@
       height: 100vh;
       overflow: hidden;
       position: relative;
+      filter: saturate(300%) contrast(200%) brightness(150%);
     }
 
     h1 {
       font-size: 3rem;
-      color: #f7b500;
-      text-shadow: 2px 2px #00000030;
-      animation: float 3s ease-in-out infinite;
+      color: #ff0000;
+      text-shadow: 5px 5px #00ff00, -5px -5px #0000ff;
+      animation: text-corrupt 0.2s infinite, spin-crazy 3s linear infinite;
+      transform-origin: center;
+      filter: blur(2px);
     }
 
     .buttons {
@@ -31,23 +40,29 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
+      transform: skew(-15deg);
     }
 
     button {
       padding: 12px 24px;
       font-size: 1rem;
-      border: none;
-      border-radius: 12px;
-      background-color: #ffcc00;
-      color: #333;
+      border: 3px solid #ff0000;
+      border-radius: 0px;
+      background-color: #00ff00;
+      color: #ff00ff;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.2s, background-color 0.3s;
+      box-shadow: 10px 10px 0px #0000ff;
+      transition: none;
+      animation: button-glitch 0.3s infinite;
+      font-family: 'Press Start 2P', cursive;
+      text-transform: uppercase;
     }
 
     button:hover {
-      transform: scale(1.05);
-      background-color: #ffd633;
+      transform: scale(2) rotate(45deg);
+      background-color: #ff0000;
+      color: #00ff00;
+      animation: explode 0.1s infinite;
     }
 
     .discord-button,
@@ -56,54 +71,49 @@
       align-items: center;
       gap: 12px;
       padding: 7px 20px;
-      color: white;
+      color: #ffff00;
       font-size: 1.1rem;
       font-weight: bold;
-      border: none;
-      border-radius: 12px;
+      border: 5px dashed #ff0000;
+      border-radius: 0px;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 0 20px #ff00ff;
       text-decoration: none;
-      transition: transform 0.2s, background-color 0.3s;
+      transition: none;
       position: absolute;
       left: 20px;
+      animation: float-chaos 1s infinite;
+      background: linear-gradient(45deg, #ff0000, #00ff00);
     }
 
     .discord-button {
       bottom: 20px;
-      background-color: #5865F2;
+      transform: rotate(-45deg);
     }
 
     .discord-hyping {
       bottom: 70px;
-      background-color: #7289da;
+      transform: rotate(45deg);
     }
 
     .discord-button:hover,
     .discord-hyping:hover {
-      transform: scale(1.05);
-      background-color: #4752c4;
+      transform: scale(0.1) rotate(720deg);
+      animation: seizure 0.05s infinite;
     }
 
     .discord-logo {
       width: 19px;
       height: auto;
+      filter: invert(100%) hue-rotate(180deg);
+      animation: logo-spin 0.5s linear infinite;
     }
 
     img.bee {
       width: 100px;
-      animation: buzz 1.5s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes buzz {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(3deg); }
-      75% { transform: rotate(-3deg); }
+      animation: bee-chaos 0.1s ease-in-out infinite;
+      filter: hue-rotate(360deg) saturate(500%);
+      transform-origin: center;
     }
 
     .papa-container {
@@ -112,60 +122,66 @@
       right: 30px;
       font-family: 'Press Start 2P', cursive;
       font-size: 1.3rem;
-      text-shadow: 2px 2px #000;
+      text-shadow: 5px 5px #ff0000, -5px -5px #00ff00;
       display: flex;
       align-items: center;
-      transform: rotate(-8deg);
+      transform: rotate(-180deg) scale(2);
       image-rendering: pixelated;
+      animation: papa-madness 0.2s infinite;
     }
 
-    .orange { color: #ffaa00; }
-    .cyan { color: #00ffff; }
+    .orange { 
+      color: #ff0000; 
+      animation: color-chaos 0.1s infinite;
+    }
+    .cyan { 
+      color: #00ff00; 
+      animation: color-chaos 0.15s infinite;
+    }
 
     .heart {
-      color: red;
-      animation: beat 1s infinite;
+      color: #0000ff;
+      animation: heart-explosion 0.05s infinite;
       margin-left: 10px;
-      font-size: 1.5em;
+      font-size: 3em;
     }
 
-    @keyframes beat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-    }
-
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      background: #fff3cd;
-      border: 3px solid #ffcc00;
+      transform: translate(-50%, -50%) rotate(15deg) scale(1.5);
+      background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+      border: 10px solid #ffff00;
       padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      border-radius: 0px;
+      box-shadow: 0 0 50px #ff00ff;
       z-index: 10;
       max-width: 300px;
       text-align: center;
+      animation: modal-chaos 0.3s infinite;
     }
 
     .modal h2 {
       margin-top: 0;
       margin-bottom: 15px;
-      color: #d48806;
+      color: #ffffff;
+      text-shadow: 3px 3px #000000;
+      animation: text-glitch 0.1s infinite;
     }
 
     .modal ul {
       list-style: none;
       padding: 0;
       font-weight: bold;
-      color: #333;
+      color: #ffff00;
+      animation: list-shake 0.2s infinite;
     }
 
     .modal ul li::before {
-      content: "🐝 ";
+      content: "💀 ";
+      animation: skull-spin 0.5s linear infinite;
     }
 
     .overlay {
@@ -174,61 +190,245 @@
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.5);
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255,0,0,0.8),
+        rgba(255,0,0,0.8) 10px,
+        rgba(0,255,0,0.8) 10px,
+        rgba(0,255,0,0.8) 20px
+      );
       z-index: 5;
+      animation: overlay-madness 0.1s infinite;
+    }
+
+    /* Corrupted Animations */
+    @keyframes glitch-shake {
+      0% { transform: translate(0); }
+      10% { transform: translate(-2px, 2px); }
+      20% { transform: translate(2px, -2px); }
+      30% { transform: translate(-2px, -2px); }
+      40% { transform: translate(2px, 2px); }
+      50% { transform: translate(-2px, 2px); }
+      60% { transform: translate(2px, -2px); }
+      70% { transform: translate(-2px, -2px); }
+      80% { transform: translate(2px, 2px); }
+      90% { transform: translate(-2px, 2px); }
+      100% { transform: translate(0); }
+    }
+
+    @keyframes rainbow-bg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes text-corrupt {
+      0% { transform: scaleX(1); }
+      25% { transform: scaleX(0.5) scaleY(2); }
+      50% { transform: scaleX(2) scaleY(0.5); }
+      75% { transform: scaleX(0.8) scaleY(1.5); }
+      100% { transform: scaleX(1); }
+    }
+
+    @keyframes spin-crazy {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes button-glitch {
+      0% { transform: translate(0) scale(1); }
+      33% { transform: translate(5px, -5px) scale(1.1); }
+      66% { transform: translate(-5px, 5px) scale(0.9); }
+      100% { transform: translate(0) scale(1); }
+    }
+
+    @keyframes explode {
+      0% { transform: scale(1); }
+      50% { transform: scale(3) rotate(180deg); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes float-chaos {
+      0% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-20px) rotate(90deg); }
+      50% { transform: translateY(20px) rotate(180deg); }
+      75% { transform: translateY(-10px) rotate(270deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+
+    @keyframes seizure {
+      0% { filter: invert(0); }
+      50% { filter: invert(1); }
+      100% { filter: invert(0); }
+    }
+
+    @keyframes logo-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes bee-chaos {
+      0% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(90deg) scale(2); }
+      50% { transform: rotate(180deg) scale(0.5); }
+      75% { transform: rotate(270deg) scale(1.5); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    @keyframes papa-madness {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(3); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    @keyframes color-chaos {
+      0% { color: #ff0000; }
+      25% { color: #00ff00; }
+      50% { color: #0000ff; }
+      75% { color: #ffff00; }
+      100% { color: #ff00ff; }
+    }
+
+    @keyframes heart-explosion {
+      0% { transform: scale(1); }
+      50% { transform: scale(5) rotate(180deg); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes modal-chaos {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      25% { transform: translate(-50%, -50%) rotate(90deg) scale(0.5); }
+      50% { transform: translate(-50%, -50%) rotate(180deg) scale(2); }
+      75% { transform: translate(-50%, -50%) rotate(270deg) scale(0.8); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes text-glitch {
+      0% { text-shadow: 3px 3px #000000; }
+      50% { text-shadow: -3px -3px #ff0000, 3px 3px #00ff00; }
+      100% { text-shadow: 3px 3px #000000; }
+    }
+
+    @keyframes list-shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      50% { transform: translateX(10px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes skull-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes overlay-madness {
+      0% { opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+
+    @keyframes screen-tear {
+      0% { clip-path: inset(0); }
+      10% { clip-path: inset(10px 0 0 0); }
+      20% { clip-path: inset(0 10px 0 0); }
+      30% { clip-path: inset(0 0 10px 0); }
+      40% { clip-path: inset(0 0 0 10px); }
+      50% { clip-path: inset(5px 5px 5px 5px); }
+      100% { clip-path: inset(0); }
+    }
+
+    /* Error Messages */
+    .error-popup {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #ff0000;
+      color: #ffffff;
+      padding: 10px;
+      border: 2px solid #000000;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      animation: error-blink 0.2s infinite;
+      z-index: 1000;
+    }
+
+    @keyframes error-blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Titre Minecraft -->
+  <div class="error-popup">ERROR 404: REALITY NOT FOUND</div>
+
+  <!-- Titre Minecraft Corrompu -->
   <div class="papa-container">
-    <span class="orange">PaPa</span><span class="cyan">Sayens</span><span class="heart">❤</span>
+    <span class="orange">P4P4</span><span class="cyan">S4Y3N5</span><span class="heart">💀</span>
   </div>
 
-  <img class="bee" src="https://preview.redd.it/uvivl8gbhz281.png?auto=webp&s=07640911b5dc686b0365755ec2eb37732c4ecb82" alt="Minecraft Bee">
+  <img class="bee" src="https://preview.redd.it/uvivl8gbhz281.png?auto=webp&s=07640911b5dc686b0365755ec2eb37732c4ecb82" alt="Corrupted Bee">
 
-  <h1>BeeLand | Hyping</h1>
+  <h1>B33L4ND | C0RRuPt3D</h1>
 
   <div class="buttons">
-    <button onclick="accessOB()">Accéder à la page OB</button>
-    <button onclick="window.open('https://sites.google.com/view/beelandhyping/page-information?authuser=0', '_blank')">Accéder aux Informations Générales du Pwarp</button>
-    <button onclick="toggleModal()">En savoir plus</button>
+    <button onclick="accessOB()">4CC3D3R 4 L4 P4G3 0B</button>
+    <button onclick="corruptedInfo()">1NF0RM4T10N5 C0RR0MPU35</button>
+    <button onclick="toggleModal()">3RR3UR F4T4L3</button>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal Corrompue -->
   <div class="overlay" onclick="toggleModal()"></div>
   <div class="modal">
-    <h2>Membres OB BeeLand</h2>
+    <h2>M3MBR35 0B C0RR0MPU5</h2>
     <ul>
-      <li>Chef : Broder445_</li>
-      <li>Munich2824</li>
-      <li>AnorkiA</li>
-      <li>LM_MangeMonMelo</li>
-      <li>Lovely1815</li>
-      <li>Wirox35430</li>
+      <li>Chef : Br0d3r445_</li>
+      <li>Mun1ch2824</li>
+      <li>4n0rk14</li>
+      <li>LM_M4ng3M0nM3l0</li>
+      <li>L0v3ly1815</li>
+      <li>W1r0x35430</li>
       <li>N4RUX</li>
     </ul>
   </div>
 
-  <a class="discord-button" href="https://discord.gg/mXY35WQu8k" target="_blank">
-    <img class="discord-logo" src="https://static-00.iconduck.com/assets.00/discord-icon-512x394-w67rhk6f.png" alt="Discord Logo">
-    Rejoins notre Discord
+  <a class="discord-button" href="#" onclick="corruptedLink(event)">
+    <img class="discord-logo" src="https://static-00.iconduck.com/assets.00/discord-icon-512x394-w67rhk6f.png" alt="Corrupted Discord">
+    D15C0RD C0RR0MPU
   </a>
 
-  <a class="discord-hyping" href="https://discord.gg/4eKrgr8Ez8" target="_blank">
-    <img class="discord-logo" src="https://static-00.iconduck.com/assets.00/discord-icon-512x394-w67rhk6f.png" alt="Discord Logo">
-    Rejoins le Discord d'Hyping !
+  <a class="discord-hyping" href="#" onclick="corruptedLink(event)">
+    <img class="discord-logo" src="https://static-00.iconduck.com/assets.00/discord-icon-512x394-w67rhk6f.png" alt="Corrupted Discord">
+    HYP1NG 3RR3UR!
   </a>
 
   <script>
+    // Corruption du JavaScript
     function accessOB() {
-      const code = prompt("Veuillez entrer le code d'accès :");
-      if(code === "B2L55E0") {
-        window.open("https://sites.google.com/view/beelandhyping/page-ob?authuser=0", "_blank");
+      const codes = ["B2L55E0", "3RR0R", "C0RRuPt3D", "404", "NULL"];
+      const randomCode = codes[Math.floor(Math.random() * codes.length)];
+      const userCode = prompt("C0D3 D'4CC35 C0RR0MPU :");
+      
+      if(Math.random() > 0.5) {
+        alert("4CC35 4CC0RD3 P4R 3RR3UR!");
+        window.open("about:blank", "_blank");
       } else {
-        alert("Code incorrect !");
+        alert("3RR3UR F4T4L3: " + Math.random().toString(36).substring(7));
+        corruptScreen();
       }
+    }
+
+    function corruptedInfo() {
+      const messages = [
+        "1NF0RM4T10N5 P3RDU35",
+        "D0NN335 C0RR0MPU35",
+        "3RR3UR D3 M3M01R3",
+        "F1CH13R 1NTR0UV4BL3"
+      ];
+      alert(messages[Math.floor(Math.random() * messages.length)]);
+      document.body.style.filter = "invert(100%)";
     }
 
     function toggleModal() {
@@ -237,7 +437,48 @@
       const isVisible = modal.style.display === 'block';
       modal.style.display = isVisible ? 'none' : 'block';
       overlay.style.display = isVisible ? 'none' : 'block';
+      
+      if (!isVisible) {
+        // Corruption supplémentaire lors de l'ouverture
+        modal.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg) scale(${Math.random() * 2 + 0.5})`;
+      }
     }
+
+    function corruptedLink(event) {
+      event.preventDefault();
+      alert("L13N C0RR0MPU!");
+      document.body.style.animation = "glitch-shake 0.05s infinite";
+      setTimeout(() => {
+        document.body.style.animation = "";
+      }, 2000);
+    }
+
+    function corruptScreen() {
+      const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff'];
+      setInterval(() => {
+        document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      }, 100);
+    }
+
+    // Corruption automatique
+    setInterval(() => {
+      const elements = document.querySelectorAll('*');
+      const randomElement = elements[Math.floor(Math.random() * elements.length)];
+      randomElement.style.transform = `rotate(${Math.random() * 360}deg) scale(${Math.random() * 2})`;
+    }, 3000);
+
+    // Messages d'erreur aléatoires
+    const errorMessages = [
+      "M3M01R3 1N5UFF154NT3",
+      "3RR3UR CR1T1QU3",
+      "5Y5T3M3 C0RR0MPU",
+      "D0NN335 P3RDU35"
+    ];
+
+    setInterval(() => {
+      const errorDiv = document.querySelector('.error-popup');
+      errorDiv.textContent = errorMessages[Math.floor(Math.random() * errorMessages.length)];
+    }, 2000);
   </script>
 </body>
 </html>
